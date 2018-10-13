@@ -20,6 +20,7 @@ sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's us
 RSS: false
 zhihu_username:     igeneral-36
 github_username:    XuHaoIgeneral
+jianshu_username:   d71a0e351d28
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
