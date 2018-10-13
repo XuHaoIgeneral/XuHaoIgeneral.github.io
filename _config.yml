@@ -6,9 +6,9 @@ email: xhigeneral@gmail.coms
 description: "十五从军征，八十始得归。道逢乡里人：家中有阿谁？遥看是君家，松柏冢累累。兔从狗窦入，雉从梁上飞。\n 
 中庭生旅谷，井上生旅葵。舂谷持作饭，采葵持作羹。羹饭一时熟，不知贻阿谁！出门东向看，泪落沾我衣"
 keyword: "BY, BY Blog, IGeneral HOME, XuHao, iGeneral, go, python, students"
-url: "https://XuHaoIgeneral.github.io"          # your host, for absolute URL
+url: "https://xuhaoigeneral.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/XuHaoIgeneral/XuHaoIgeneral.github.io.git" # you code repository
+github_repo: "https://github.com/XuHaoIgeneral/xuhaoigeneral.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
@@ -60,7 +60,7 @@ gitalk:
   enable: true    #是否开启Gitalk评论
   clientID: b7033fa0133a517ff15d                            #生成的clientID
   clientSecret: 0486acd1741ef785c0fd5ead42b85c7a53fb6fef    #生成的clientSecret
-  repo: XuHaoIgeneral.github.io    #仓库名称
+  repo: xuhaoigeneral.github.io    #仓库名称
   owner: XuHaoIgeneral    #github用户名
   admin: XuHaoIgeneral
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
