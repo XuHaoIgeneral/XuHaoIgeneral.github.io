@@ -81,6 +81,6 @@ service-worker: true
 friends: [
     {
         title: "GXT",
-        href: "https://qiubaiying.github.io/"
+        href: "http://farfrombeing.com"
     },
 ]
