@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Git 代码回滚
-subtitle:   回滚代码的正确姿势
+title:      GoLang中goroutine之间的通信
+subtitle:   并发编程基础，探索go的并发奥义
 date:       2018-10-17
 author:     XuHAo
 header-img: img/post-bg-BJJ.png
