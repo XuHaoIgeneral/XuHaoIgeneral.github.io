@@ -16,7 +16,7 @@ tags:
 
 **在go程序中，最被人所熟知的便是并发特性，一方面有goroutine这类二级线程，对这种不处于用户态的go程的支持，另一方面便是对并发编程的简便化，可以快捷稳定的写出支持并发的程序。**
 
-
+#### 基础回顾
 - 先回顾进程or线程之间的通信方式
 
     inte-process communication(IPC)  
@@ -37,7 +37,7 @@ tags:
 
 
 ---
-全局共享变量：  
+#### 全局共享变量：  
 实现思路为： 
 1. 申明一个全局变量。
 2. 在这个全局变量作用域中，开启多个go程，多个go程实际上是共享这个全局变量。
@@ -77,7 +77,7 @@ tags:
 
 
 ---
-channel通信
+#### channel通信
 
 首先解释golang中的channel：channel是go中的核心部分之一，结构体简单概括就是一个ring队列+一个锁 有兴趣的同学可以去研究一下源码构建。在使用中可以将channel看做管道，通过channel迸发执行的go程之间就可以发送或者接受数据，从而对并发逻辑进行控制。
 > go的channel的设计是建立在CSP(Communicating Sequential Process)，中文可以叫做通信顺序进程，是一种并发编程模型，由 Tony Hoare 于 1977 年提出。简单来说，CSP 模型由并发执行的实体（线程或者进程）所组成，实体之间通过发送消息进行通信，这里发送消息时使用的就是通道，或者叫 channel。CSP 模型的关键是关注 channel，而不关注发送消息的实体。Go 语言实现了 CSP 部分理论，goroutine 对应 CSP 中并发执行的实体，channel 也就对应着 CSP 中的 channel。 也就是说，CSP 描述这样一种并发模型：多个Process 使用一个 Channel 进行通信, 这个 Channel 连结的 Process 通常是匿名的，消息传递通常是同步的（有别于 Actor Model）。
@@ -131,4 +131,7 @@ channel通信
             wg.Wait()
             fmt.Println("OVER")
     }
+    
 >channel通信控制基于CSP模型，相比于传统的线程与锁并发模型，避免了大量的加锁解锁的性能消耗，而又比Actor模型更加灵活，使用Actor模型时，负责通讯的媒介与执行单元是紧耦合的–每个Actor都有一个信箱。而使用CSP模型，channel是第一对象，可以被独立地创建，写入和读出数据，更容易进行扩展。
+
+#### 下一章将介绍 context 1.7版本后的新特性，个人认为这才是go的并发编程发展趋势，更简单
