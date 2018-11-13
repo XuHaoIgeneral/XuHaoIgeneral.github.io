@@ -109,7 +109,7 @@ func main() {
 
 在引用一段多控制
 
-```go
+```
 func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 	go watch(ctx,"【监控1】")
