@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      GoLang中goroutine之间的通信
+title:      GoLang中goroutine之间的通信（上）
 subtitle:   并发编程基础，探索go的并发奥义
 date:       2018-10-17
 author:     XuHAo
@@ -11,7 +11,7 @@ tags:
     - 并发
     - 多线程
 ---
-# GoLang中goroutine之间的通信
+# GoLang中goroutine之间的通信（上）
 
 
 **在go程序中，最被人所熟知的便是并发特性，一方面有goroutine这类二级线程，对这种不处于用户态的go程的支持，另一方面便是对并发编程的简便化，可以快捷稳定的写出支持并发的程序。**
@@ -35,7 +35,6 @@ tags:
 - channel管道通信  ---CSP模型
 - context包        ---在1.7版本后引入
 
-
 ---
 #### 全局共享变量：  
 实现思路为： 
@@ -47,17 +46,17 @@ tags:
 
     package main
     import (
-	    "fmt"
-	    "time"
+        "fmt"
+        "time"
     )
-
+    
     func main() {
-	    running := true
-	    f := func() {
-		    for running { //控制的全局共享变量
-			    fmt.Println("sub proc running...")
-			    time.Sleep(1 * time.Second)
-		    }
+        running := true
+        f := func() {
+    	    for running { //控制的全局共享变量
+    		    fmt.Println("sub proc running...")
+    		    time.Sleep(1 * time.Second)
+    	    }
     		fmt.Println("sub proc exit")
     	}
     	go f()
@@ -74,7 +73,6 @@ tags:
    -  不能适应结构复杂的设计，功能有限，只能适用于子go程中读，外主程或父go程来写全局变量，若子go程中进行写，会出现数据同步问题，需要加锁解决，不加锁面对map这类线程不安全的结构会报错。
    -  还有不适合用于同级的子go程间的通信，全局变量传递的信息太少。
    -  还有就是主进程无法等待所有子goroutine退出，因为这种方式只能是单向通知，所以这种方法只适用于非常简单的逻辑且并发量不太大的场景。
-
 
 ---
 #### channel通信
@@ -131,7 +129,7 @@ tags:
             wg.Wait()
             fmt.Println("OVER")
     }
-    
+
 >channel通信控制基于CSP模型，相比于传统的线程与锁并发模型，避免了大量的加锁解锁的性能消耗，而又比Actor模型更加灵活，使用Actor模型时，负责通讯的媒介与执行单元是紧耦合的–每个Actor都有一个信箱。而使用CSP模型，channel是第一对象，可以被独立地创建，写入和读出数据，更容易进行扩展。
 
 #### 下一章将介绍 context 1.7版本后的新特性，个人认为这才是go的并发编程发展趋势，更简单
